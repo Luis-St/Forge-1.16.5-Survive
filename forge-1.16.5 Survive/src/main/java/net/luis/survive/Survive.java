@@ -41,7 +41,6 @@ public class Survive {
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "survive";
 	public static final String MINECRAFT_ID = "minecraft";
-	public static final boolean DEV_AREA = true;
 	
 	public Survive() {
 		
