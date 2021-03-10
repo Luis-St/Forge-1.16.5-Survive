@@ -12,7 +12,6 @@ import net.luis.survive.common.enchantment.tool.DoubleDrops;
 import net.luis.survive.common.enchantment.tool.Experience;
 import net.luis.survive.common.enchantment.tool.Harvesting;
 import net.luis.survive.common.enchantment.tool.Smelting;
-import net.luis.survive.common.enchantment.vanilla.Flame;
 import net.luis.survive.common.enchantment.vanilla.Impaling;
 import net.luis.survive.common.enchantment.vanilla.Infinity;
 import net.luis.survive.common.enchantment.vanilla.Piercing;
@@ -90,9 +89,6 @@ public class ModEnchantment {
 	
 	public static final RegistryObject<Enchantment> PUNCH = VANILLA_ENCHANTMENT.register("punch", 
 			() -> new Punch(Rarity.RARE, EnchantmentType.BOW, EquipmentSlotType.MAINHAND));
-	
-	public static final RegistryObject<Enchantment> FLAME = VANILLA_ENCHANTMENT.register("flame", 
-			() -> new Flame(Rarity.RARE, EnchantmentType.BOW, EquipmentSlotType.MAINHAND));
 	
 	public static final RegistryObject<Enchantment> ENDER_SLYAER = ENCHANTMENT.register("ender_slayer", 
 			() -> new EnderSlayer(Rarity.UNCOMMON, EnchantmentType.WEAPON, EquipmentSlotType.MAINHAND));

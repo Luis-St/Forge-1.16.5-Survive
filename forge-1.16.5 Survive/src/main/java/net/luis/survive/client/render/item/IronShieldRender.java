@@ -1,4 +1,4 @@
-package net.luis.survive.client.render.item.item;
+package net.luis.survive.client.render.item;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
@@ -11,11 +11,11 @@ import net.minecraft.client.renderer.tileentity.ItemStackTileEntityRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
-public class EnderiteShieldRender extends ItemStackTileEntityRenderer {
+public class IronShieldRender extends ItemStackTileEntityRenderer {
 	
     private final ShieldModel shieldModel;
     
-    public EnderiteShieldRender() {
+    public IronShieldRender() {
     	
         this.shieldModel = new ShieldModel();
         
@@ -28,7 +28,7 @@ public class EnderiteShieldRender extends ItemStackTileEntityRenderer {
     	p_239207_3_.scale(1.0F, -1.0F, -1.0F);
     	
     	final IVertexBuilder vertexConsumer = ItemRenderer.getBuffer(p_239207_4_, 
-    						this.shieldModel.getRenderType(new ResourceLocation("survive:textures/entity/enderite_shield.png")), false, p_239207_1_.hasEffect());
+    						this.shieldModel.getRenderType(new ResourceLocation("survive:textures/entity/iron_shield.png")), false, p_239207_1_.hasEffect());
     	
     	this.shieldModel.render(p_239207_3_, vertexConsumer, p_239207_5_, p_239207_6_, 1.0f, 1.0f, 1.0f, 1.0f);
     	
