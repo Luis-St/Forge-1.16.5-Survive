@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "survive:block/infinite_anvil",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "survive:block/infinite_anvil",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "survive:block/infinite_anvil"
+    },
+    "facing=west": {
+      "model": "survive:block/infinite_anvil",
+      "y": 90
+    }
+  }
+}
