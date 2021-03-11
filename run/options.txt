@@ -105,7 +105,7 @@ key_key.backpack_next:key.keyboard.g
 key_key.backpack_slot_top:key.keyboard.v
 key_key.backpack_slot_down:key.keyboard.n
 soundCategory_master:0.18874173
-soundCategory_music:0.44366196
+soundCategory_music:0.0
 soundCategory_record:0.48415494
 soundCategory_weather:0.45422536
 soundCategory_block:0.4806338
