@@ -64,15 +64,8 @@ public class EnderChestCapability {
 		@SuppressWarnings({ "unchecked" })
 		public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
 			
-			return cap == ENDERCHEST && cap != null ? (LazyOptional<T>) optional : LazyOptional.empty();
-			
-		}
-		
-		@Override
-		@SuppressWarnings({ "unchecked" })
-		public <T> LazyOptional<T> getCapability(Capability<T> cap) {
-			
-			return cap == ENDERCHEST && cap != null ? (LazyOptional<T>) lazyOptional : LazyOptional.empty();
+			LazyOptional<?> ret = side == null ? optional : lazyOptional;
+			return cap == ENDERCHEST && cap != null ? (LazyOptional<T>) ret : LazyOptional.empty();
 			
 		}
 
