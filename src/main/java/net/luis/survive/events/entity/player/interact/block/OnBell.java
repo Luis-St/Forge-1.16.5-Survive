@@ -5,14 +5,16 @@ import java.util.List;
 
 import net.luis.survive.Survive;
 import net.luis.survive.api.world.WorldManager;
+import net.minecraft.block.BellBlock;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.monster.AbstractIllagerEntity;
 import net.minecraft.entity.monster.AbstractRaiderEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -31,9 +33,10 @@ public class OnBell {
 		BlockPos pos = event.getPos();
 		World world = event.getWorld();
 		BlockState state = world.getBlockState(pos);
+		boolean flag = BlockTags.getCollection().get(new ResourceLocation(Survive.MOD_ID, "bell")).contains(state.getBlock());
 		
-		if (state.getBlock() == Blocks.BELL) {
-
+		if (state.getBlock() instanceof BellBlock || flag) {
+			
 			if (world instanceof ServerWorld) {
 				
 				ServerWorld serverWorld = (ServerWorld) world;

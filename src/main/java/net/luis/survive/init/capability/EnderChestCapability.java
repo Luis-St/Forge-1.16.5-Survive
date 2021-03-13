@@ -20,7 +20,7 @@ import net.minecraftforge.items.wrapper.InvWrapper;
 public class EnderChestCapability {
 	
 	@CapabilityInject(IEnderChestItemHandler.class)
-	public static Capability<IEnderChestItemHandler> ENDERCHEST = null;
+	public static Capability<CombinedInvWrapper> ENDERCHEST = null;
 	
 	public static class EnderChestStorage implements IStorage<IEnderChestItemHandler> {
 		@Override
@@ -43,6 +43,7 @@ public class EnderChestCapability {
 		
 		private EnderChestItemStackHandler inventory = new EnderChestItemStackHandler(27);
 		private PlayerEntity player;
+		private LazyOptional<EnderChestItemStackHandler> lazyOptional = LazyOptional.of(() -> inventory);
 		private LazyOptional<CombinedInvWrapper> optional = LazyOptional.of(() -> {
 			
 			EnderChestInventory enderChestInventory = player.getInventoryEnderChest();
@@ -64,6 +65,14 @@ public class EnderChestCapability {
 		public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
 			
 			return cap == ENDERCHEST && cap != null ? (LazyOptional<T>) optional : LazyOptional.empty();
+			
+		}
+		
+		@Override
+		@SuppressWarnings({ "unchecked" })
+		public <T> LazyOptional<T> getCapability(Capability<T> cap) {
+			
+			return cap == ENDERCHEST && cap != null ? (LazyOptional<T>) lazyOptional : LazyOptional.empty();
 			
 		}
 

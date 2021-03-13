@@ -6,7 +6,6 @@ import net.luis.survive.init.capability.EnderChestCapability;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -17,11 +16,11 @@ public class OnAttachCapabilitiesEvent {
 	@SubscribeEvent
 	public static void AttachCapabilities(AttachCapabilitiesEvent<Entity> event) {
 		
-		if (event.getObject() instanceof PlayerEntity && !(event.getObject() instanceof FakePlayer)) {
+		if (event.getObject() instanceof PlayerEntity) {
 			
 			PlayerEntity player = (PlayerEntity) event.getObject();
 			event.addCapability(new ResourceLocation("survive:extended_enderchest_gui"), new EnderChestCapability.EnderChestProvider(player));
-			event.addCapability(new ResourceLocation("survive:backpack_gui"), new BackpackCapability.BagpackProvider());
+			event.addCapability(new ResourceLocation("survive:backpack_gui"), new BackpackCapability.BackpackProvider());
 			
 		}
 		

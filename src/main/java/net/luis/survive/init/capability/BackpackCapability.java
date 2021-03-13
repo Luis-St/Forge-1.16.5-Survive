@@ -19,7 +19,19 @@ public class BackpackCapability {
 	@CapabilityInject(IBackpackItemHandler.class)
 	public static Capability<IBackpackItemHandler> BACKPACK = null;
 	
-	public static class BagpackStorage implements IStorage<IBackpackItemHandler> {
+	public static Capability<IBackpackItemHandler> getBackpack() {
+		
+		return BACKPACK;
+		
+	}
+	
+	public static Capability<IBackpackItemHandler> setBackpack() {
+		
+		return BACKPACK;
+		
+	}
+	
+	public static class BackpackStorage implements IStorage<IBackpackItemHandler> {
 		@Override
 		public INBT writeNBT(Capability<IBackpackItemHandler> capability, IBackpackItemHandler instance, Direction side) {
 			return null;
@@ -29,27 +41,29 @@ public class BackpackCapability {
 		}
 	}
 	
-	public static class BagpackFactory implements Callable<IBackpackItemHandler> {
+	public static class BackpackFactory implements Callable<IBackpackItemHandler> {
 		@Override
 		public IBackpackItemHandler call() throws Exception {
 			return null;
 		}
 	}
 	
-	public static class BagpackProvider implements ICapabilitySerializable<CompoundNBT> {
+	public static class BackpackProvider implements ICapabilitySerializable<CompoundNBT> {
 		
 		private BackpackItemStackHandler inventory = new BackpackItemStackHandler(38);
 		private LazyOptional<IItemHandlerModifiable> optional = LazyOptional.of(() -> inventory);
 		
-		public BagpackProvider() {
-			
-		}
-		
 		@Override
-		@SuppressWarnings({ "unchecked" })
+		@SuppressWarnings("unchecked")
 		public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
 			
 			return cap == BACKPACK && cap != null ? (LazyOptional<T>) optional : LazyOptional.empty();
+			
+		}
+		
+		public void setapability(LazyOptional<IItemHandlerModifiable> optional) {
+			
+			this.optional = optional;
 			
 		}
 

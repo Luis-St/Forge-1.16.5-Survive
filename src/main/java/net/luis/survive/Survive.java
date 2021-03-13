@@ -94,18 +94,17 @@ public class Survive {
 	
 	private void setup(FMLCommonSetupEvent event) {
 		
+		ModPacketHandler.init();
 		CapabilityManager.INSTANCE.register(IEnderChestItemHandler.class, 
 				new EnderChestCapability.EnderChestStorage(), 
 				new EnderChestCapability.EnderChestFactory());
 		CapabilityManager.INSTANCE.register(IBackpackItemHandler.class, 
-				new BackpackCapability.BagpackStorage(), 
-				new BackpackCapability.BagpackFactory());
+				new BackpackCapability.BackpackStorage(), 
+				new BackpackCapability.BackpackFactory());
 		
 	}
 	
 	private void doClientStuff(FMLClientSetupEvent event) {
-	
-		ModPacketHandler.init();
 		
 	}
 	
