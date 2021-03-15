@@ -57,12 +57,16 @@ public class Smelting extends Enchantment {
 	
 	@Override
 	public boolean canApply(ItemStack stack) {
-		return !(stack.getItem() instanceof HoeItem);
+		if (stack.getItem() instanceof HoeItem)
+			return false;
+		return super.canApply(stack);
 	}
 	
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
-		return !(stack.getItem() instanceof HoeItem);
+		if (stack.getItem() instanceof HoeItem)
+			return false;
+		return super.canApplyAtEnchantingTable(stack);
 	}
 
 }

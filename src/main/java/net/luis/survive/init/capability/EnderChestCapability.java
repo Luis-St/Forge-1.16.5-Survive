@@ -43,8 +43,8 @@ public class EnderChestCapability {
 		
 		private EnderChestItemStackHandler inventory = new EnderChestItemStackHandler(27);
 		private PlayerEntity player;
-		private LazyOptional<EnderChestItemStackHandler> lazyOptional = LazyOptional.of(() -> inventory);
-		private LazyOptional<CombinedInvWrapper> optional = LazyOptional.of(() -> {
+		private LazyOptional<EnderChestItemStackHandler> enderChestHandler = LazyOptional.of(() -> inventory);
+		private LazyOptional<CombinedInvWrapper> combinedInventory = LazyOptional.of(() -> {
 			
 			EnderChestInventory enderChestInventory = player.getInventoryEnderChest();
 			InvWrapper invWrapper = new InvWrapper(enderChestInventory);
@@ -64,8 +64,8 @@ public class EnderChestCapability {
 		@SuppressWarnings({ "unchecked" })
 		public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
 			
-			LazyOptional<?> ret = side == null ? optional : lazyOptional;
-			return cap == ENDERCHEST && cap != null ? (LazyOptional<T>) ret : LazyOptional.empty();
+			LazyOptional<?> ret = side == null ? combinedInventory : enderChestHandler;
+			return cap == ENDERCHEST ? (LazyOptional<T>) ret : LazyOptional.empty();
 			
 		}
 
