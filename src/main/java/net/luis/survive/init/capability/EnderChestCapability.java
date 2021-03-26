@@ -14,13 +14,14 @@ import net.minecraftforge.common.capabilities.Capability.IStorage;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.wrapper.CombinedInvWrapper;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
 public class EnderChestCapability {
 	
 	@CapabilityInject(IEnderChestItemHandler.class)
-	public static Capability<CombinedInvWrapper> ENDERCHEST = null;
+	public static Capability<IItemHandlerModifiable> ENDERCHEST = null;
 	
 	public static class EnderChestStorage implements IStorage<IEnderChestItemHandler> {
 		@Override

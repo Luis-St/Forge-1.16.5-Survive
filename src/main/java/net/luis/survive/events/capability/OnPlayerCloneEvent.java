@@ -9,7 +9,6 @@ import net.minecraft.util.Direction;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
 
 @Mod.EventBusSubscriber(modid=Survive.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
@@ -35,16 +34,15 @@ public class OnPlayerCloneEvent {
 		
 		original.getCapability(EnderChestCapability.ENDERCHEST, Direction.WEST).ifPresent(oldEnderChest -> {
 			
-			IItemHandlerModifiable oldItemModifiable = oldEnderChest;
-			ItemStackHandler oldItemHandler = (ItemStackHandler) oldItemModifiable;
-			CompoundNBT nbt = oldItemHandler.serializeNBT();
-					
 			player.getCapability(EnderChestCapability.ENDERCHEST, Direction.WEST).ifPresent(newEnderChest -> {
 				
-				IItemHandlerModifiable newItemModifiable = newEnderChest;
-				ItemStackHandler newItemHandler = (ItemStackHandler) newItemModifiable;
-				newItemHandler.deserializeNBT(nbt);
-				
+				if (oldEnderChest instanceof ItemStackHandler && newEnderChest instanceof ItemStackHandler) {
+					
+					CompoundNBT nbt = ((ItemStackHandler) oldEnderChest).serializeNBT();
+					((ItemStackHandler) newEnderChest).deserializeNBT(nbt);
+					
+				}
+
 			});
 			
 		});

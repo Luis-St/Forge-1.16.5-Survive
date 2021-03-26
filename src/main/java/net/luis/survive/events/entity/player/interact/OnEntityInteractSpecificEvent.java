@@ -43,7 +43,7 @@ public class OnEntityInteractSpecificEvent {
 			uniqueInteger = uniqueInteger > 10 ? 10 : uniqueInteger;
 			Item item = player.getHeldItem(event.getHand()).getItem();
 			
-			if (world.getDayTime() >= 1000 && world.getDayTime() <= 11000) {
+			if (world.getDayTime() >= 0 && world.getDayTime() <= 12000) {
 				
 				if (world.getGameRules().getBoolean(ModGameRule.DO_WORKTIME_TRADE_RESETING.getRule())) {
 					
