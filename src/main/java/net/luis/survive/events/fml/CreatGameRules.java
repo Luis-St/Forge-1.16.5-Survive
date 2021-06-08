@@ -28,6 +28,12 @@ public class CreatGameRules {
 			creatBoolean.setAccessible(true);
 			creatInteger.setAccessible(true);
 			
+			event.enqueueWork(() -> {
+				
+
+				
+			});
+			
 			DeferredWorkQueue.runLater(() -> addBooleanGameRule(ModGameRule.DISABLE_ENDERMAN_TELEPORT));
 			DeferredWorkQueue.runLater(() -> addBooleanGameRule(ModGameRule.DISABLE_ENDERMAN_ATTACK_TELEPORT));
 			DeferredWorkQueue.runLater(() -> addBooleanGameRule(ModGameRule.DISABLE_SHULKER_TELEPORT));
